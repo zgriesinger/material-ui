@@ -1,7 +1,7 @@
 {
   "name": "@alienfast/material-ui",
   "author": "Call-em-all Engineering Team",
-  "version": "0.16.1",
+  "version": "0.16.50",
   "description": "Material Design UI components built with React",
   "main": "./src/index.js",
   "keywords": [
@@ -20,6 +20,7 @@
   },
   "homepage": "http://material-ui.com/",
   "scripts": {
+    "af-publish": "npm version patch && npm run build && cd build && npm publish",
     "build": "npm run build:babel && npm run build:copy-files",
     "build:icon-index": "babel-node ./scripts/icon-index-generator.js",
     "build:babel": "babel ./src --ignore *.spec.js --out-dir ./build",
