@@ -46,7 +46,7 @@ export default class Dialog extends Component {
      */
     children: PropTypes.node,
     /**
-     * The CSS class name of the **dialog** root paper element.
+     * The CSS class name of the root element.
      */
     className: PropTypes.string,
     /**
@@ -98,6 +98,10 @@ export default class Dialog extends Component {
      */
     open: PropTypes.bool,
     /**
+     * The CSS class name of the paper inner element.
+     */
+    paperClassName: PropTypes.string,
+    /**
      * Transition component.
      */
     transition: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
@@ -135,9 +139,10 @@ export default class Dialog extends Component {
       onExiting,
       onExited,
       onRequestClose,
+      paperClassName,
       transition,
       transitionDuration,
-      ...other,
+      ...other
     } = this.props;
 
     const classes = this.context.styleManager.render(styleSheet);
@@ -164,7 +169,7 @@ export default class Dialog extends Component {
 
     return (
       <Modal
-        className={classes.modal}
+        className={classNames(classes.modal, className)}
         backdropTransitionDuration={transitionDuration}
         hideOnBackdropClick={hideOnBackdropClick}
         hideOnEscapeKeyUp={hideOnEscapeKeyUp}
@@ -172,13 +177,13 @@ export default class Dialog extends Component {
         onEscapeKeyUp={onEscapeKeyUp}
         onRequestClose={onRequestClose}
         show={open}
+        {...other}
       >
         {createTransitionFn(transition, transitionProps, (
           <Paper
             data-mui-test="Dialog"
             zDepth={24}
-            className={classNames(classes.dialog, className)}
-            {...other}
+            className={classNames(classes.dialog, paperClassName)}
           >
             {children}
           </Paper>

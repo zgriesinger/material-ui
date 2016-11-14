@@ -20,7 +20,7 @@ export default function DialogTitle(props, context) {
   const {
     children,
     className,
-    ...other,
+    ...other
   } = props;
 
   const classes = context.styleManager.render(styleSheet);
@@ -36,6 +36,9 @@ export default function DialogTitle(props, context) {
 
 DialogTitle.propTypes = {
   children: PropTypes.node,
+  /**
+   * The CSS class name of the root element.
+   */
   className: PropTypes.string,
 };
 

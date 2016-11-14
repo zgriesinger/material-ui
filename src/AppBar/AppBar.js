@@ -33,11 +33,15 @@ export default class AppBar extends Component {
   static propTypes = {
     accent: PropTypes.bool,
     children: PropTypes.node,
+    /**
+     * The CSS class name of the root element.
+     */
     className: PropTypes.string,
     primary: PropTypes.bool,
   };
 
   static defaultProps = {
+    accent: false,
     primary: true,
   };
 
@@ -51,7 +55,7 @@ export default class AppBar extends Component {
       children,
       className: classNameProp,
       primary,
-      ...other,
+      ...other
     } = this.props;
 
     const classes = this.context.styleManager.render(styleSheet);

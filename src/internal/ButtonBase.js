@@ -49,6 +49,9 @@ export default class ButtonBase extends Component {
   static propTypes = {
     centerRipple: PropTypes.bool,
     children: PropTypes.node,
+    /**
+     * The CSS class name of the root element.
+     */
     className: PropTypes.string,
     component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     disabled: PropTypes.bool,
@@ -208,7 +211,14 @@ export default class ButtonBase extends Component {
       children,
       className: classNameProp,
       component,
+      /**
+       * If true, the base button will be disabled.
+       */
       disabled,
+      /**
+       * If true, the base button will have a keyboard focus ripple.
+       * Ripple must also be true.
+       */
       focusRipple, // eslint-disable-line no-unused-vars
       keyboardFocusedClassName,
       onBlur, // eslint-disable-line no-unused-vars
@@ -220,9 +230,12 @@ export default class ButtonBase extends Component {
       onMouseUp, // eslint-disable-line no-unused-vars
       onTouchEnd, // eslint-disable-line no-unused-vars
       onTouchStart, // eslint-disable-line no-unused-vars
+      /**
+       * If true, the base button will have a ripple.
+       */
       ripple,
       type,
-      ...other,
+      ...other
     } = this.props;
 
     const classes = this.context.styleManager.render(styleSheet);
@@ -267,7 +280,7 @@ export default class ButtonBase extends Component {
       createFragment({
         children,
         ripple: this.renderRipple(ripple, centerRipple),
-      })
+      }),
     );
   }
 }

@@ -36,7 +36,7 @@ export default function TextFieldLabel(props, context) {
     focused,
     required,
     shrink,
-    ...other,
+    ...other
   } = props;
   const classes = context.styleManager.render(styleSheet);
 
@@ -64,9 +64,12 @@ export default function TextFieldLabel(props, context) {
 TextFieldLabel.propTypes = {
   animated: PropTypes.bool,
   /**
-   * The contents of the `TextFieldLabel`
+   * The contents of the `TextFieldLabel`.
    */
   children: PropTypes.node,
+  /**
+   * The CSS class name of the root element.
+   */
   className: PropTypes.string,
   /**
    * Whether the input of this label is focused.
@@ -82,6 +85,8 @@ TextFieldLabel.propTypes = {
 
 TextFieldLabel.defaultProps = {
   animated: true,
+  focused: false,
+  required: false,
 };
 
 TextFieldLabel.contextTypes = {

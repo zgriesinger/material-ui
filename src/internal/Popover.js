@@ -177,7 +177,7 @@ export default class Popover extends Component {
   };
 
   static getScale(value) {
-    return `scale(${value}, ${Math.pow(value, 2)})`;
+    return `scale(${value}, ${value ** 2})`;
   }
 
   autoTransitionDuration = undefined;
@@ -371,7 +371,7 @@ export default class Popover extends Component {
       onExiting,
       onExited,
       zDepth,
-      ...other,
+      ...other
     } = this.props;
 
     const classes = this.context.styleManager.render(styleSheet);
