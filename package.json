@@ -1,7 +1,7 @@
 {
   "name": "@alienfast/material-ui",
   "author": "Call-em-all Engineering Team",
-  "version": "0.16.53",
+  "version": "0.16.54",
   "description": "Material Design UI components built with React",
   "main": "./src/index.js",
   "keywords": [
