@@ -49,7 +49,7 @@ function createPackageFile() {
     } = packageData;
 
     const minimalPackage = {
-      name: 'material-ui',
+      name: '@alienfast/material-ui',
       author,
       version,
       description,
