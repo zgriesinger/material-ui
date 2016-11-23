@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react';
 import { createStyleSheet } from 'jss-theme-reactor';
 import classNames from 'classnames';
 import SwitchBase from '../internal/SwitchBase';
+import SelectionLabel from '../internal/SelectionLabel';
 
 export const styleSheet = createStyleSheet('Checkbox', (theme) => {
   return {
@@ -13,29 +14,29 @@ export const styleSheet = createStyleSheet('Checkbox', (theme) => {
     checked: {
       color: theme.palette.accent[500],
     },
-    label: {
-      marginLeft: -12,
-      display: 'flex',
-      alignItems: 'center',
-      cursor: 'pointer',
-    },
   };
 });
 
 export default function Checkbox(props, context) {
   const { className, checkedClassName, label, labelClassName, ...other } = props;
   const classes = context.styleManager.render(styleSheet);
-  return (
-    <label className={classNames(classes.label, labelClassName)} role="presentation">
-      <SwitchBase
-        className={classNames(classes.default, className)}
-        checkedClassName={classNames(classes.checked, checkedClassName)}
-        aria-label={label}
-        {...other}
-      />
-      <span aria-hidden="true" role="presentation">{label}</span>
-    </label>
-  );
+
+  const switchProps = {
+    className: classNames(classes.default, className),
+    checkedClassName: classNames(classes.checked, checkedClassName),
+    ...other,
+  };
+
+  if (label) {
+    switchProps['aria-label'] = label;
+    return (
+      <SelectionLabel label={label} className={labelClassName}>
+        <SwitchBase {...switchProps} />
+      </SelectionLabel>
+    );
+  }
+
+  return <SwitchBase {...switchProps} />;
 }
 
 Checkbox.propTypes = {
@@ -44,7 +45,7 @@ Checkbox.propTypes = {
    * The CSS class name of the root element.
    */
   className: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.node,
   labelClassName: PropTypes.string,
 };
 
