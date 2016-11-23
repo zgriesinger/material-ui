@@ -21,6 +21,10 @@ export const MUI_SHEET_ORDER = [
 
   'Popover',
   'Dialog',
+  'DialogAction',
+  'DialogContent',
+  'DialogContentText',
+  'DialogTitle',
 
   'Button',
   'IconButton',
@@ -29,6 +33,10 @@ export const MUI_SHEET_ORDER = [
   'Checkbox',
   'Radio',
   'RadioGroup',
+
+  'TabIndicator',
+  'Tab',
+  'Tabs',
 
   'BottomNavigationButton',
   'BottomNavigation',
