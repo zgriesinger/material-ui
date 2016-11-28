@@ -20,7 +20,7 @@
   },
   "homepage": "http://material-ui.com/",
   "scripts": {
-    "af-publish": "npm version patch && npm run build && cd build && npm publish",
+    "af-publish": "npm version patch && npm run build && cd build && npm publish && rm -rf build",
     "build": "npm run build:babel && npm run build:copy-files",
     "build:icon-index": "babel-node ./scripts/icon-index-generator.js",
     "build:babel": "babel ./src --ignore *.spec.js --out-dir ./build",
