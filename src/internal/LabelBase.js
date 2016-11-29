@@ -14,9 +14,6 @@ export const styleSheet = createStyleSheet('LabelBase', (theme) => {
     focused: {
       color: focusColor,
     },
-    asterisk: {
-      // color: default color when unfocused
-    },
     error: {
       color: theme.palette.error[500],
     },
@@ -39,16 +36,16 @@ export default function LabelBase(props, context) {
     [classes.error]: error,
   }, classNameProp);
 
-  const asteriskClassName = classNames(classes.asterisk, {
-    [classes.error]: focused || error,
+  const asteriskClassName = classNames({
+    [classes.error]: error,
   });
 
   return (
     <label className={className} {...other}>
       {children}
       {required && (
-        <span className={asteriskClassName}>
-          {'\u2009'}*
+        <span className={asteriskClassName} data-mui-test="LabelBaseAsterisk">
+          {'\u2009*'}
         </span>
       )}
     </label>
@@ -65,7 +62,7 @@ LabelBase.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * Whether the label should be displayed in an error state
+   * Whether the label should be displayed in an error state.
    */
   error: PropTypes.bool,
   /**

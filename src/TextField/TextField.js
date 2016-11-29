@@ -82,6 +82,10 @@ export default class TextField extends Component {
     error: PropTypes.bool,
   };
 
+  static defaultProps = {
+    error: false,
+  };
+
   static contextTypes = {
     styleManager: PropTypes.object.isRequired,
   };

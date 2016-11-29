@@ -60,7 +60,7 @@ TextFieldLabel.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * Whether the label should be displayed in an error state
+   * Whether the label should be displayed in an error state.
    */
   error: PropTypes.bool,
   /**
@@ -68,8 +68,7 @@ TextFieldLabel.propTypes = {
    */
   focused: PropTypes.bool,
   /**
-   * Whether this label should indicate that the input
-   * is required.
+   * Whether this label should indicate that the input is required.
    */
   required: PropTypes.bool,
   shrink: PropTypes.bool,
