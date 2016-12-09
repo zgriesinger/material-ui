@@ -18,7 +18,15 @@ export const styleSheet = createStyleSheet('Checkbox', (theme) => {
 });
 
 export default function Checkbox(props, context) {
-  const { className, checkedClassName, disabled, label, labelClassName, labelReverse, ...other } = props;
+  const {
+    className,
+    checkedClassName,
+    disabled,
+    label,
+    labelClassName,
+    labelReverse,
+    ...other
+  } = props;
   const classes = context.styleManager.render(styleSheet);
 
   const switchProps = {

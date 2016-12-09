@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react';
 import { createStyleSheet } from 'jss-theme-reactor';
 import classNames from 'classnames';
 
-export const styleSheet = createStyleSheet('SelectionLabel', () => {
+export const styleSheet = createStyleSheet('SelectionLabel', (theme) => {
   return {
     root: {
       marginLeft: -12,
@@ -17,23 +17,37 @@ export const styleSheet = createStyleSheet('SelectionLabel', () => {
       flexDirection: 'row-reverse',
     },
     disabled: {
-      opacity: 0.5,
+      opacity: theme.opacity.disabled,
       cursor: 'not-allowed',
     },
   };
 });
 
 export default function SelectionLabel(props, context) {
-  const { disabled, label, labelClassName: labelClassNameProp, labelReverse, children } = props;
+  const {
+    disabled,
+    label,
+    labelClassName: labelClassNameProp,
+    labelReverse,
+    children,
+  } = props;
   const classes = context.styleManager.render(styleSheet);
   const labelClassName = classNames(classes.root, {
     [classes.reverse]: labelReverse,
-    [classes.disabled]: disabled,
   }, labelClassNameProp);
+
   return (
     <label className={labelClassName} role="presentation">
       {children}
-      <span aria-hidden="true" role="presentation">{label}</span>
+      <span
+        aria-hidden="true"
+        role="presentation"
+        className={classNames({
+          [classes.disabled]: disabled,
+        })}
+      >
+        {label}
+      </span>
     </label>
   );
 }
