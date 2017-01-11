@@ -9,6 +9,8 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
 import withWidth, { isWidthUp } from 'material-ui/utils/withWidth';
+import MenuIcon from 'material-ui/svg-icons/menu';
+import LightbulbOutlineIcon from 'material-ui/svg-icons/lightbulb-outline';
 import AppDrawer from './AppDrawer';
 
 function getTitle(routes) {
@@ -111,10 +113,6 @@ class AppFrame extends Component {
     drawerOpen: false,
   };
 
-  handleDrawerOpen = () => {
-    this.setState({ drawerOpen: true });
-  };
-
   handleDrawerClose = () => {
     this.setState({ drawerOpen: false });
   };
@@ -154,7 +152,7 @@ class AppFrame extends Component {
         <AppBar className={appBarClassName}>
           <Toolbar>
             <IconButton contrast onClick={this.handleDrawerToggle} className={navIconClassName}>
-              menu
+              <MenuIcon />
             </IconButton>
             {title !== null && (
               <Text className={classes.title} type="title" colorInherit>
@@ -163,7 +161,7 @@ class AppFrame extends Component {
             )}
             <div className={classes.grow} />
             <IconButton contrast onClick={this.handleToggleShade} className={classes.toggleShade}>
-              lightbulb_outline
+              <LightbulbOutlineIcon />
             </IconButton>
           </Toolbar>
         </AppBar>
