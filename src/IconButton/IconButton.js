@@ -1,10 +1,11 @@
 // @flow weak
 
 import React, { PropTypes, Children, cloneElement } from 'react';
-import { createStyleSheet } from 'jss-theme-reactor';
 import classNames from 'classnames';
+import { createStyleSheet } from 'jss-theme-reactor';
 import ButtonBase from '../internal/ButtonBase';
 import Icon from '../Icon';
+import customPropTypes from '../utils/customPropTypes';
 
 export const styleSheet = createStyleSheet('IconButton', (theme) => {
   const { palette, transitions } = theme;
@@ -89,11 +90,10 @@ export default function IconButton(props, context) {
       <span className={classes.label}>
         {typeof children === 'string' ?
           <Icon className={iconClassName}>{children}</Icon> :
-          Children.map(children, (child, index) => {
+          Children.map(children, (child) => {
             if (child.type && child.type.muiName === 'Icon') {
               return cloneElement(child, {
-                key: index,
-                className: iconClassName,
+                className: classNames(iconClassName, child.props.className),
               });
             }
 
@@ -149,5 +149,5 @@ IconButton.defaultProps = {
 };
 
 IconButton.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
+  styleManager: customPropTypes.muiRequired,
 };

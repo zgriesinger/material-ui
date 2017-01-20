@@ -20,9 +20,10 @@ describe('<Icon />', () => {
     assert.strictEqual(wrapper.contains('account_circle'), true, 'should contain the children');
   });
 
-  it('should render an span', () => {
+  it('should render an span with root class', () => {
     const wrapper = shallow(<Icon>account_circle</Icon>);
     assert.strictEqual(wrapper.is('span'), true, 'should be an span');
+    assert.strictEqual(wrapper.hasClass(classes.root), true, 'should have the "root" class');
   });
 
   it('should spread props on span', () => {
@@ -44,6 +45,12 @@ describe('<Icon />', () => {
     it('should render with the action class', () => {
       const wrapper = shallow(<Icon action>account_circle</Icon>);
       assert.strictEqual(wrapper.hasClass(classes.action), true, 'should have the "action" class');
+    });
+
+    it('should render with the contrast class', () => {
+      const wrapper = shallow(<Icon contrast>account_circle</Icon>);
+      assert.strictEqual(wrapper.hasClass(classes.contrast), true,
+        'should have the "contrast" class');
     });
 
     it('should render with the error class', () => {
