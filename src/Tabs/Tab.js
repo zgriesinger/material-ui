@@ -4,7 +4,6 @@ import React, { Component, PropTypes, isValidElement } from 'react';
 import classNames from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
 import ButtonBase from '../internal/ButtonBase';
-import Icon from '../Icon';
 import customPropTypes from '../utils/customPropTypes';
 import Icon from '../Icon';
 
