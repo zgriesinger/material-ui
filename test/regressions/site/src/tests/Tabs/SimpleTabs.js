@@ -4,6 +4,7 @@ import React from 'react';
 import { createStyleSheet } from 'jss-theme-reactor';
 import Icon from 'material-ui/Icon';
 import customPropTypes from 'material-ui/utils/customPropTypes';
+import Icon from 'material-ui/Icon';
 import Paper from 'material-ui/Paper';
 import Tabs from 'material-ui/Tabs';
 import Tab from 'material-ui/Tabs/Tab';

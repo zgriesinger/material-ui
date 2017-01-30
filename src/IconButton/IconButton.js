@@ -3,9 +3,9 @@
 import React, { PropTypes, Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import { createStyleSheet } from 'jss-theme-reactor';
+import customPropTypes from '../utils/customPropTypes';
 import ButtonBase from '../internal/ButtonBase';
 import Icon from '../Icon';
-import customPropTypes from '../utils/customPropTypes';
 
 export const styleSheet = createStyleSheet('IconButton', (theme) => {
   const { palette, transitions } = theme;

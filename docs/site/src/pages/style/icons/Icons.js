@@ -1,7 +1,8 @@
 // @flow weak
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { createStyleSheet } from 'jss-theme-reactor';
+import customPropTypes from 'material-ui/utils/customPropTypes';
 import Icon from 'material-ui/Icon';
 
 const styleSheet = createStyleSheet('Icons', () => ({
@@ -29,6 +30,6 @@ export default function Icons(props, context) {
 }
 
 Icons.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
+  styleManager: customPropTypes.muiRequired,
 };
 

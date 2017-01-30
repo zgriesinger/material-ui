@@ -1,7 +1,8 @@
 // @flow weak
 import React, { PropTypes } from 'react';
-import { createStyleSheet } from 'jss-theme-reactor';
 import classNames from 'classnames';
+import { createStyleSheet } from 'jss-theme-reactor';
+import customPropTypes from '../utils/customPropTypes';
 
 export const styleSheet = createStyleSheet('Icon', (theme) => {
   const { palette } = theme;
@@ -36,7 +37,7 @@ export const styleSheet = createStyleSheet('Icon', (theme) => {
  * <Icon>account_circle</Icon>
  * ```
  */
-const Icon = (props, context) => {
+function Icon(props, context) {
   const {
     accent,
     action,
@@ -63,8 +64,12 @@ const Icon = (props, context) => {
     },
     classNameProp);
 
-  return (<span className={className} {...other}>{children}</span>);
-};
+  return (
+    <span className={className} {...other}>
+      {children}
+    </span>
+  );
+}
 
 Icon.propTypes = {
   /**
@@ -102,7 +107,7 @@ Icon.propTypes = {
 };
 
 Icon.contextTypes = {
-  styleManager: PropTypes.object.isRequired,
+  styleManager: customPropTypes.muiRequired,
 };
 
 Icon.defaultProps = {

@@ -6,6 +6,7 @@ import { createStyleSheet } from 'jss-theme-reactor';
 import ButtonBase from '../internal/ButtonBase';
 import Icon from '../Icon';
 import customPropTypes from '../utils/customPropTypes';
+import Icon from '../Icon';
 
 export const styleSheet = createStyleSheet('Tab', (theme) => {
   return {
