@@ -1,7 +1,7 @@
 {
   "name": "@alienfast/material-ui",
   "author": "Material-UI Team",
-  "version": "0.16.90",
+  "version": "0.16.91",
   "description": "Material Design UI components built with React",
   "main": "./src/index.js",
   "keywords": [
