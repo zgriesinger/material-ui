@@ -7,7 +7,6 @@ import {
   Router,
   Route,
   IndexRoute,
-  IndexRedirect,
 } from 'react-router';
 import { useScroll } from 'react-router-scroll';
 import { kebabCase, titleize } from 'docs/src/utils/helpers';
@@ -31,7 +30,6 @@ export default function AppRouter() {
           nav
           component={AppContent}
         >
-          <IndexRedirect to="installation" />
           <Route
             title="Installation"
             path="/getting-started/installation"
@@ -74,7 +72,6 @@ export default function AppRouter() {
           nav
           component={AppContent}
         >
-          <IndexRedirect to="themes" />
           <Route
             title="Themes"
             path="/customization/themes"
@@ -132,9 +129,23 @@ export default function AppRouter() {
           component={AppContent}
         >
           <Route
-            title="Responsive UI"
-            path="/layout/responsive-ui"
-            content={requireMarkdown('./layout/responsive-ui.md')}
+            title="Basics"
+            path="/layout/basics"
+            content={requireMarkdown('./layout/basics.md')}
+            component={MarkdownDocs}
+            nav
+          />
+          <Route
+            title="Layout"
+            path="/layout/layout"
+            content={requireMarkdown('./layout/layout.md')}
+            component={MarkdownDocs}
+            nav
+          />
+          <Route
+            title="Hidden"
+            path="/layout/hidden"
+            content={requireMarkdown('./layout/hidden.md')}
             component={MarkdownDocs}
             nav
           />
@@ -185,7 +196,6 @@ export default function AppRouter() {
           nav
           component={AppContent}
         >
-          <IndexRedirect to="community" />
           <Route
             title="Community"
             path="/discover-more/community"
