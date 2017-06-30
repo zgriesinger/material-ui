@@ -23,12 +23,12 @@ function getStyles(props, context, state) {
       position: 'fixed',
       left: '50%',
       display: 'flex',
-      bottom: 0,
+      top: 0,
       zIndex: zIndex.snackbar,
       visibility: open ? 'visible' : 'hidden',
       transform: open ?
         'translate(-50%, 0)' :
-        `translate(-50%, ${desktopSubheaderHeight}px)`,
+        `translate(-50%, -${desktopSubheaderHeight}px)`,
       transition: `${transitions.easeOut('400ms', 'transform')}, ${
         transitions.easeOut('400ms', 'visibility')}`,
     },
